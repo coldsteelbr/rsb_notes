@@ -18,7 +18,7 @@ class NoteListTableViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // creating an instance of UITableViewCell
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: "StandardCell")
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "StandardCell", for: indexPath)
         
         // getting appropriate item
         let item = noteItemStore.items[indexPath.row]
