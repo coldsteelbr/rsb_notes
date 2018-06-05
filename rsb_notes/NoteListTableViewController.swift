@@ -10,6 +10,24 @@ import UIKit
 
 class NoteListTableViewController: UITableViewController{
     
+    var noteItemStore: NoteStore!
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return noteItemStore.items.count
+    }
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // creating an instance of UITableViewCell
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: "StandardCell")
+        
+        // getting appropriate item
+        let item = noteItemStore.items[indexPath.row]
+        
+        // populating fields of the cell
+        cell.textLabel?.text = item.title
+        cell.detailTextLabel?.text = item.content
+        
+        // returning the set cell
+        return cell
+    }
 }

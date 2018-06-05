@@ -16,6 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //
+        // Injecting NoteStore to the NoteListVC
+        //
+        
+        // creating NoteStore
+        let noteStore = NoteStore()
+        
+        // adding note store to the table vc
+        let navController = window!.rootViewController as! UINavigationController
+        let noteListVC = navController.viewControllers[0] as! NoteListTableViewController
+        noteListVC.noteItemStore = noteStore
+        
         return true
     }
 
