@@ -49,8 +49,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Notes" id="9OM-8P-uWs">
-                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="edit" id="ruD-6P-srF"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="CIy-cQ-Cxf"/>
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="edit" id="ruD-6P-srF">
+                            <connections>
+                                <action selector="toggleEditingMode:" destination="ZVB-4p-XEI" id="pq4-Hb-toP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="CIy-cQ-Cxf">
+                            <connections>
+                                <action selector="addNewNote:" destination="ZVB-4p-XEI" id="QjQ-1n-lkC"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SlM-TE-8Gh" userLabel="First Responder" sceneMemberID="firstResponder"/>
