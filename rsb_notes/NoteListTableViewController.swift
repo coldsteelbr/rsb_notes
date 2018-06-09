@@ -67,12 +67,16 @@ class NoteListTableViewController: UITableViewController{
     }
     
     /// Deletes item cell from the table view
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        
-        if editingStyle == .delete {
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        //
+        //  Building "Remove" action
+        //
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Remove") {
+            (action, indexPath) in
+            
             // getting item
-            let itemToRemove = noteItemStore.items[indexPath.row]
-    
+            let itemToRemove = self.noteItemStore.items[indexPath.row]
+            
             //
             // building action sheet
             //
@@ -97,16 +101,12 @@ class NoteListTableViewController: UITableViewController{
             ac.addAction(cancelAction)
             
             // showing the alert dialog
-            present(ac, animated: true, completion: nil)
+            self.present(ac, animated: true, completion: nil)
+            
         }
+        
+        return [deleteAction]
     }
-    
-    
-    
-    
-    
-    
-    
     
     
     
