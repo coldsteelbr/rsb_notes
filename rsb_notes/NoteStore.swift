@@ -19,4 +19,11 @@ class NoteStore {
         return newNote
     }
     
+    /// Removes item from the store
+    func removeItem(_ item: NoteItem){
+        if let index = items.index(of: item) {
+            items.remove(at: index)
+        }
+    }
+    
 }

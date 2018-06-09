@@ -44,12 +44,12 @@ class NoteListTableViewController: UITableViewController{
     // UITableViewDataSource protocol's methods
     //
     
-    /// count of rows in section
+    /// Returns count of rows in section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return noteItemStore.items.count
     }
     
-    /// returns reusable UITableViewCell
+    /// Returns reusable UITableViewCell
     /// populated with data
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // creating an instance of UITableViewCell
@@ -65,6 +65,38 @@ class NoteListTableViewController: UITableViewController{
         // returning the set cell
         return cell
     }
+    
+    // Deletes item cell from the table view
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        //switch editingStyle {
+        //case .delete:
+        
+        if editingStyle == .delete {
+            // getting item
+            let itemToRemove = noteItemStore.items[indexPath.row]
+    
+            // removing item
+            noteItemStore.removeItem(itemToRemove)
+            
+            // removing UI cell from the table view
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        //default: break
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 }
