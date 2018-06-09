@@ -9,15 +9,35 @@
 import UIKit
 
 class NoteListTableViewController: UITableViewController{
-    
+    let THE_ONLY_SECTION_NUMBER = 0
     var noteItemStore: NoteStore!
     
     
-    
+    /// Turns on and off the edtting mode
     @IBAction func toggleEditingMode(_ sender: UIBarButtonItem) {
+        // Editting mode?
+        if isEditing {
+            // turning off
+            setEditing(false, animated: true)
+        } else {
+            // turning on
+            setEditing(true, animated: true)
+        }
     }
     
+    /// Adds new note
     @IBAction func addNewNote(_ sender: UIBarButtonItem) {
+        // creating new note item
+        let newNote = noteItemStore.createNoteItem()
+        
+        // getting new item's index in the array
+        if let index = noteItemStore.items.index(of: newNote) {
+            // getting position to insert
+            let indexPath = IndexPath(row: index, section: THE_ONLY_SECTION_NUMBER)
+            
+            // Inserting new cell
+            tableView.insertRows(at: [indexPath], with: .automatic)
+        }
     }
     
     //
