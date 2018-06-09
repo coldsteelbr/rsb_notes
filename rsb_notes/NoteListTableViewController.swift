@@ -66,22 +66,38 @@ class NoteListTableViewController: UITableViewController{
         return cell
     }
     
-    // Deletes item cell from the table view
+    /// Deletes item cell from the table view
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        
-        //switch editingStyle {
-        //case .delete:
         
         if editingStyle == .delete {
             // getting item
             let itemToRemove = noteItemStore.items[indexPath.row]
     
-            // removing item
-            noteItemStore.removeItem(itemToRemove)
+            //
+            // building action sheet
+            //
+            let alertTitle = "Delete \(itemToRemove.title ?? "the item" )?"
+            let alertMessage = "Are you sure you want to delete this note?"
+            let ac = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .actionSheet)
             
-            // removing UI cell from the table view
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-        //default: break
+            // adding actions...
+            // ...delete
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) {
+                (action) -> Void in
+                // removing item
+                self.noteItemStore.removeItem(itemToRemove)
+                
+                // removing UI cell from the table view
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+            ac.addAction(deleteAction)
+            
+            // ... cancel
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            ac.addAction(cancelAction)
+            
+            // showing the alert dialog
+            present(ac, animated: true, completion: nil)
         }
     }
     

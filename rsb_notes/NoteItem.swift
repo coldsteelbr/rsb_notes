@@ -23,8 +23,8 @@ let contents = ["Single line",
                 "",]
 
 class NoteItem: NSObject {
-    var title: String
-    var content: String
+    var title: String?
+    var content: String?
     var dateChanged: Date
     var unique: String?
     var _id: Int64 = 0
