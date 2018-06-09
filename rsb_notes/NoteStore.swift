@@ -19,11 +19,4 @@ class NoteStore {
         return newNote
     }
     
-    // Designated initializer, creating 10 random notes
-    init(){
-        for _ in 0..<10{
-            createNoteItem()
-        }
-    }
-    
 }
