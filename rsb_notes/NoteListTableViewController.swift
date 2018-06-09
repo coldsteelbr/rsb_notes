@@ -66,7 +66,11 @@ class NoteListTableViewController: UITableViewController{
         return cell
     }
     
-    /// Deletes item cell from the table view
+    //
+    // UITableViewDelegate protocol's methods
+    //
+    
+    /// Custom action buttons for rows
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         //
         //  Building "Remove" action
