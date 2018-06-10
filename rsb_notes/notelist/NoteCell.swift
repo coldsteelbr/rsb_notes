@@ -6,4 +6,12 @@
 //  Copyright © 2018 Roman Brazhnikov. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class NoteCell: UITableViewCell {
+    
+    @IBOutlet var title: UILabel!
+    @IBOutlet var content: UILabel!
+    @IBOutlet var date: UILabel!
+    
+}

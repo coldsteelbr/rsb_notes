@@ -11,7 +11,14 @@ import UIKit
 class NoteListTableViewController: UITableViewController{
     let THE_ONLY_SECTION_NUMBER = 0
     var noteItemStore: NoteStore!
-    
+    let dateFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateStyle = .short
+        f.timeStyle = .none
+        f.locale = Locale(identifier: "ru_Ru")
+        //f.setLocalizedDateFormatFromTemplate("dd.MM.yyyy")
+        return f;
+    }()
     
     /// Turns on and off the edtting mode
     @IBAction func toggleEditingMode(_ sender: UIBarButtonItem) {
@@ -41,6 +48,17 @@ class NoteListTableViewController: UITableViewController{
     }
     
     //
+    // Life cycle
+    //
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("\(#function) tableView.rowHeight = \(tableView.rowHeight)")
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
+    }
+    
+    //
     // UITableViewDataSource protocol's methods
     //
     
@@ -53,14 +71,15 @@ class NoteListTableViewController: UITableViewController{
     /// populated with data
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // creating an instance of UITableViewCell
-        let cell =  tableView.dequeueReusableCell(withIdentifier: "StandardCell", for: indexPath)
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! NoteCell
         
         // getting appropriate item
         let item = noteItemStore.items[indexPath.row]
         
         // populating fields of the cell
-        cell.textLabel?.text = item.title
-        cell.detailTextLabel?.text = item.content
+        cell.title?.text = item.title
+        cell.content?.text = item.content
+        cell.date?.text = dateFormatter.string(from: item.dateChanged)
         
         // returning the set cell
         return cell

@@ -20,6 +20,12 @@ let contents = ["Single line",
                 "Shoes",
                 "Birthday party is on Sunday, yeah! Let's party!",
                 "Just another boring note about a gray rainy day...",
+                """
+                OKay, let's write some really long and multiline text, to test our UI Cells and other different stuff. For example, what does lorem impusm mean? Have you ever hoticed the fish?
+                So, what do we actually have here? Some really cool note about this wonderful day. Two-in-one, really.
+                You never know how long the text is.
+                Add some more lines of text. Really long text. Not THAT long, but still.
+                """,
                 "",]
 
 class NoteItem: NSObject {
