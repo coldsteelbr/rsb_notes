@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3027B5E620CE3D87002F3839 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3027B5E520CE3D87002F3839 /* NoteViewController.swift */; };
+		3027B5E920CE616A002F3839 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3027B5E820CE616A002F3839 /* EditorViewController.swift */; };
 		3031762120CCDCA000190350 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3031762020CCDCA000190350 /* NoteCell.swift */; };
 		304B34BC20C6AC9E009116BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B34BB20C6AC9E009116BF /* AppDelegate.swift */; };
 		304B34C120C6AC9E009116BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 304B34BF20C6AC9E009116BF /* Main.storyboard */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3027B5E520CE3D87002F3839 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		3027B5E820CE616A002F3839 /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		3031762020CCDCA000190350 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		304B34B820C6AC9E009116BF /* rsb_notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rsb_notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		304B34BB20C6AC9E009116BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +45,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3027B5E420CE3D45002F3839 /* detail */ = {
+			isa = PBXGroup;
+			children = (
+				3027B5E520CE3D87002F3839 /* NoteViewController.swift */,
+			);
+			path = detail;
+			sourceTree = "<group>";
+		};
+		3027B5E720CE6139002F3839 /* editor */ = {
+			isa = PBXGroup;
+			children = (
+				3027B5E820CE616A002F3839 /* EditorViewController.swift */,
+			);
+			path = editor;
+			sourceTree = "<group>";
+		};
 		3031762220CCDCB100190350 /* app */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +111,8 @@
 				3031762420CCDD3F00190350 /* repo */,
 				3031762220CCDCB100190350 /* app */,
 				3031762320CCDCE800190350 /* notelist */,
+				3027B5E420CE3D45002F3839 /* detail */,
+				3027B5E720CE6139002F3839 /* editor */,
 				304B34BF20C6AC9E009116BF /* Main.storyboard */,
 				304B34C720C6ACA1009116BF /* Info.plist */,
 			);
@@ -172,8 +194,10 @@
 				304B34D020C6B1AB009116BF /* NoteItem.swift in Sources */,
 				304B34D220C6B88A009116BF /* NoteStore.swift in Sources */,
 				3031762120CCDCA000190350 /* NoteCell.swift in Sources */,
+				3027B5E620CE3D87002F3839 /* NoteViewController.swift in Sources */,
 				304B34BC20C6AC9E009116BF /* AppDelegate.swift in Sources */,
 				304B34CE20C6AF78009116BF /* NoteListTableViewController.swift in Sources */,
+				3027B5E920CE616A002F3839 /* EditorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

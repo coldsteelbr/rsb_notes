@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -67,6 +68,7 @@
                                     <outlet property="content" destination="6o5-Kj-Em5" id="Wxc-XH-dmv"/>
                                     <outlet property="date" destination="xiG-Vu-oVc" id="hJM-EM-MUP"/>
                                     <outlet property="title" destination="4qI-dZ-XnU" id="YxZ-Tq-E6Y"/>
+                                    <segue destination="ZNu-Gp-y6D" kind="show" identifier="ShowNote" id="meF-FA-3bR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -91,6 +93,97 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SlM-TE-8Gh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="429.60000000000002" y="103.89805097451276"/>
+        </scene>
+        <!--Note View Controller-->
+        <scene sceneID="XU8-QH-br9">
+            <objects>
+                <viewController id="ZNu-Gp-y6D" customClass="NoteViewController" customModule="rsb_notes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TCV-kv-iCm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Obv-nc-UJ1">
+                                <rect key="frame" x="8" y="72" width="359" height="587"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnf-Dr-2Sh">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QaZ-23-O3Z">
+                                        <rect key="frame" x="0.0" y="34.5" width="359" height="552.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Obv-nc-UJ1" firstAttribute="leading" secondItem="xD3-hn-nfT" secondAttribute="leading" constant="8" id="9Kg-E3-VlC"/>
+                            <constraint firstItem="Obv-nc-UJ1" firstAttribute="top" secondItem="xD3-hn-nfT" secondAttribute="top" constant="8" id="Xyu-jS-UzI"/>
+                            <constraint firstItem="xD3-hn-nfT" firstAttribute="bottom" secondItem="Obv-nc-UJ1" secondAttribute="bottom" constant="8" id="dC1-r7-oxI"/>
+                            <constraint firstItem="xD3-hn-nfT" firstAttribute="trailing" secondItem="Obv-nc-UJ1" secondAttribute="trailing" constant="8" id="xuG-Q7-gUo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xD3-hn-nfT"/>
+                    </view>
+                    <connections>
+                        <outlet property="contentText" destination="QaZ-23-O3Z" id="IkZ-K5-acW"/>
+                        <outlet property="titleLabel" destination="rnf-Dr-2Sh" id="cnP-Jv-6B4"/>
+                        <segue destination="Ppq-Zn-erN" kind="show" identifier="ShowInEditor" id="xpn-6R-IaQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ydq-pt-SK1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1164" y="104"/>
+        </scene>
+        <!--Editor View Controller-->
+        <scene sceneID="tIh-qH-qJq">
+            <objects>
+                <viewController id="Ppq-Zn-erN" customClass="EditorViewController" customModule="rsb_notes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qjd-sV-ijH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="a3k-oZ-CA7">
+                                <rect key="frame" x="8" y="72" width="359" height="587"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Mi-D1-VK0">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6QH-gY-1uJ">
+                                        <rect key="frame" x="0.0" y="30" width="359" height="557"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="a3k-oZ-CA7" firstAttribute="leading" secondItem="Yx5-5V-cjA" secondAttribute="leading" constant="8" id="TWS-60-jlT"/>
+                            <constraint firstItem="Yx5-5V-cjA" firstAttribute="trailing" secondItem="a3k-oZ-CA7" secondAttribute="trailing" constant="8" id="YWD-yb-rQ2"/>
+                            <constraint firstItem="a3k-oZ-CA7" firstAttribute="top" secondItem="Yx5-5V-cjA" secondAttribute="top" constant="8" id="i9f-Kd-MpL"/>
+                            <constraint firstItem="Yx5-5V-cjA" firstAttribute="bottom" secondItem="a3k-oZ-CA7" secondAttribute="bottom" constant="8" id="niG-bP-9IY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Yx5-5V-cjA"/>
+                    </view>
+                    <connections>
+                        <outlet property="tv_content" destination="6QH-gY-1uJ" id="10Z-cv-EDN"/>
+                        <outlet property="txt_title" destination="0Mi-D1-VK0" id="fax-A8-Xq0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YNi-CB-FX8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1951" y="104"/>
         </scene>
         <!--Notes-->
         <scene sceneID="LKO-gk-fMJ">

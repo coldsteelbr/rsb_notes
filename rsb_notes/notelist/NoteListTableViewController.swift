@@ -47,6 +47,24 @@ class NoteListTableViewController: UITableViewController{
         }
     }
     
+    /// Prepares data to be past to a segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "ShowNote":
+            // which row was just tapped?
+            if let row = tableView.indexPathForSelectedRow?.row {
+                // getting the assoiated item
+                let note = noteItemStore.items[row]
+                // gettomg destonation as view
+                let noteVC = segue.destination as! NoteViewController
+                // setting the note data
+                noteVC.note = note
+            }
+        default:
+            preconditionFailure("Unexpected indentifier")
+        }
+    }
+    
     //
     // Life cycle
     //
