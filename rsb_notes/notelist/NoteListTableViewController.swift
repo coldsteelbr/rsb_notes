@@ -76,6 +76,12 @@ class NoteListTableViewController: UITableViewController{
         tableView.estimatedRowHeight = 100
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
     //
     // UITableViewDataSource protocol's methods
     //

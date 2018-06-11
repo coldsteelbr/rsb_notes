@@ -22,13 +22,15 @@ class NoteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = note.title
-        contentText.text = note.content
-        let bEdit = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(NoteViewController.showInEditor))
         
+        let bEdit = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(NoteViewController.showInEditor))
         navigationItem.rightBarButtonItems = [bEdit]
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        titleLabel.text = note.title
+        contentText.text = note.content
+    }
     //
     // Logic
     //
